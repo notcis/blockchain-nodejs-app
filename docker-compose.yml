@@ -1,6 +1,6 @@
 services:
   app-main:
-    image: notcis07/blockchain:1.0.0
+    image: notcis07/blockchain:1.0.1
     container_name: blockchain_main
     restart: always
     env_file:
@@ -13,7 +13,7 @@ services:
       - redis-docker_redis-network
 
   app-peer:
-    image: notcis07/blockchain:1.0.0
+    image: notcis07/blockchain:1.0.1
     container_name: blockchain_peer
     restart: always
     env_file:
