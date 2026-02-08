@@ -1,0 +1,30 @@
+service:
+  app_main:
+    image: notcis07/blockchain:1.0.0
+    container_name: blockchain_main
+    restart: always
+    env_file:
+      - .env
+    environment:
+      PORT: 4000
+    ports:
+      - "4000:4000"
+    nexworks:
+      - redis-docker_redis-network
+
+  app_peer:
+    image: notcis07/blockchain:1.0.0
+    container_name: blockchain_peer
+    restart: always
+    env_file:
+      - .env
+    environment:
+      PORT: 4001
+    ports:
+      - "4001:4001"
+    nexworks:
+      - redis-docker_redis-network
+
+networks:
+  redis-docker_redis-network:
+    external: true
